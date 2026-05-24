@@ -16,4 +16,14 @@ python.exe -m pip install torch torchvision torchaudio --index-url https://downl
 
 
 #如何与 1 号机联动？
+
 234 号机双击 run_worker.bat 成功启动后，你不需要在 234 号机上做任何操作了（网页都不用开）。直接回到 1号主力机 上：打开 1 号机 ComfyUI 的 Distributed 面板。输入 234 号机对应的局域网 IP（例如 192.168.1.102:8188）。点击 Connect（连接），1 号机就能瞬间把这台纯净版机子收编进你的“算力帝国”了！
+
+
+合并后需要在1号机加个节点Color Match
+<img width="1173" height="550" alt="image" src="https://github.com/user-attachments/assets/384f9980-307c-4bae-b94d-e619e340374c" />
+在 ComfyUI Manager 中搜索 ComfyUI-Post-Processing（后处理插件包）或者直接搜 Color Match。这个节点有两个输入端：一个连 1234 号机交上来的高清帧，另一个连 1 号机自己跑出来的低清帧作为“颜色参考标准”。它会自动把两者的色调完全磨平对齐。
+
+Color Match 节点（色彩匹配/对齐） —— ⭐⭐⭐⭐⭐【最佳选择】
+速度：极快（几乎不花时间）。它纯粹是传统的数字图像直方图对齐算法（不用显卡跑 AI 计算）。1 号机在回收 900 帧 1080P 高清帧后，处理一帧只需几毫秒，整段视频对齐颜色只要 几秒钟 就能全部搞定。
+稳定性：100% 稳妥。这个节点属于纯粹的后期处理，只需要装在 1 号机 即可。234 号机完全不需要装，这样就不会因为跨机器插件版本不一致导致 234 号机在半夜跑图时突然报错崩溃。
