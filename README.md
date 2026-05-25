@@ -30,3 +30,12 @@ python -m pip install torch torchvision torchaudio --index-url https://download.
 Color Match 节点（色彩匹配/对齐） —— ⭐⭐⭐⭐⭐【最佳选择】
 速度：极快（几乎不花时间）。它纯粹是传统的数字图像直方图对齐算法（不用显卡跑 AI 计算）。1 号机在回收 900 帧 1080P 高清帧后，处理一帧只需几毫秒，整段视频对齐颜色只要 几秒钟 就能全部搞定。
 稳定性：100% 稳妥。这个节点属于纯粹的后期处理，只需要装在 1 号机 即可。234 号机完全不需要装，这样就不会因为跨机器插件版本不一致导致 234 号机在半夜跑图时突然报错崩溃。
+
+
+
+
+强行将 ffmpeg.exe 丢进 ComfyUI 核心目录ComfyUI 和它的插件在启动时，会优先扫描自己根目录和 Python 环境下的文件。只要把文件直接放进去，它就绝对无法拒绝。找到下载的 ffmpeg.exe：去你解压的 ffmpeg 文件夹的 bin 目录下，复制那个 ffmpeg.exe 文件。粘贴到 3 号机的这两个绝对路径下（两处都放，最保险）：
+
+位置一（ComfyUI 根目录）：直接粘贴到 D:\ComfyUI_Pure\ 目录下（也就是和你的启动脚本、main.py 放在同一个文件夹里）。
+位置二（Python 虚拟环境的核心目录）：根据你前几轮截图里的环境路径，请把 ffmpeg.exe 丢进这个文件夹里：
+C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts\
