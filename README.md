@@ -8,7 +8,7 @@ C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps
 
 在上面的文件目录位置cmd
 然后再cmd黑色命令行窗口执行下面的命令
-python.exe -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --force-reinstall
+python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --force-reinstall
 
 #comfyui连线
 1. 在 ComfyUI 里的标准连线方式在画布中双击，搜索并添加以下两个节点即可完成调用：Upscale Image (using Model)（使用模型放大图像节点）Load Upscale Model（加载超分模型节点）连线顺序：把 Load Upscale Model 节点的 UPSCALE_MODEL 输出端，连到 Upscale Image (using Model) 节点的 upscale_model 输入端。在 Load Upscale Model 节点的下拉菜单里，直接选择 Real-ESRGAN_x4plus_anime_6B.pth。把你分布式切分出来的低清视频帧连入 IMAGE，放大后的高清帧就会从 IMAGE 输出。
